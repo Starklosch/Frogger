@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 100625036883685504
-    second: SpritesSheet_Entity_0
+    second: LargeCar_End
   - first:
       213: 6211607704647636288
-    second: SpritesSheet_Entity_1
+    second: LargeCar_Middle
   - first:
       213: 6356907062656285304
-    second: SpritesSheet_Entity_2
+    second: LargeCar_Begin
   - first:
       213: -9122732671007091664
-    second: SpritesSheet_Entity_3
+    second: Car_0
   - first:
       213: 8331183649380571307
-    second: SpritesSheet_Entity_4
+    second: Car_1
   - first:
       213: 718035729514903475
-    second: SpritesSheet_Entity_5
+    second: Car_2
   - first:
       213: 2075906507746433603
     second: SpritesSheet_Entity_6
@@ -28,22 +28,22 @@ TextureImporter:
     second: SpritesSheet_Entity_7
   - first:
       213: 5320689936478204027
-    second: SpritesSheet_Entity_8
+    second: Turtle_0
   - first:
       213: -7086762479484838901
-    second: SpritesSheet_Entity_9
+    second: Turtle_1
   - first:
       213: 5071160779308289477
-    second: SpritesSheet_Entity_10
+    second: Turtle_2
   - first:
       213: 5316339298482628359
-    second: SpritesSheet_Entity_11
+    second: Turtle_3
   - first:
       213: -5664407647990086442
-    second: SpritesSheet_Entity_12
+    second: Turtle_4
   - first:
       213: 3581623460088872969
-    second: SpritesSheet_Entity_13
+    second: Turtle_5
   - first:
       213: 802421719407487597
     second: SpritesSheet_Entity_14
@@ -52,61 +52,61 @@ TextureImporter:
     second: SpritesSheet_Entity_15
   - first:
       213: 7612923091107342912
-    second: SpritesSheet_Entity_16
+    second: Log_Begin
   - first:
       213: 7401016080716837785
-    second: SpritesSheet_Entity_17
+    second: Log_0
   - first:
       213: -582381651219592684
-    second: SpritesSheet_Entity_18
+    second: Log_1
   - first:
       213: -3305107196957828860
-    second: SpritesSheet_Entity_19
+    second: Log_2
   - first:
       213: 4585610828724751560
-    second: SpritesSheet_Entity_20
+    second: Log_End
   - first:
       213: 3991964012132785281
-    second: SpritesSheet_Entity_21
+    second: Crocodile_Tail
   - first:
       213: 4267690756963018134
-    second: SpritesSheet_Entity_22
+    second: Crocodile_Body
   - first:
       213: 375812680984085654
-    second: SpritesSheet_Entity_23
+    second: Crocodile_Head_0
   - first:
       213: 921322539953895789
-    second: SpritesSheet_Entity_24
+    second: Crocodile_0
   - first:
       213: 7096391325481393737
-    second: SpritesSheet_Entity_25
+    second: Crocodile_1
   - first:
       213: -3040693324895358658
-    second: SpritesSheet_Entity_26
+    second: Crocodile_2
   - first:
       213: 131734817520821273
-    second: SpritesSheet_Entity_27
+    second: Crocodile_3
   - first:
       213: 144968821247898524
-    second: SpritesSheet_Entity_28
+    second: Crocodile_4
   - first:
       213: 5616209699851011740
-    second: SpritesSheet_Entity_29
+    second: Butterfly_0
   - first:
       213: 7097224584150041361
-    second: SpritesSheet_Entity_30
+    second: Butterfly_1
   - first:
       213: 8056282283752669545
-    second: SpritesSheet_Entity_31
+    second: Crocodile_Head_1
   - first:
       213: 1365354367870678719
-    second: SpritesSheet_Entity_32
+    second: Frog_0
   - first:
       213: -7248068207378631868
-    second: SpritesSheet_Entity_33
+    second: Frog_1
   - first:
       213: 3492154099316868433
-    second: SpritesSheet_Entity_34
+    second: Frog_2
   - first:
       213: 5812277917377081912
     second: SpritesSheet_Entity_37
@@ -201,7 +201,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpritesSheet_Entity_0
+      name: LargeCar_End
       rect:
         serializedVersion: 2
         x: 0
@@ -209,7 +209,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_1
+      name: LargeCar_Middle
       rect:
         serializedVersion: 2
         x: 16
@@ -230,7 +230,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_2
+      name: LargeCar_Begin
       rect:
         serializedVersion: 2
         x: 32
@@ -251,7 +251,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_3
+      name: Car_0
       rect:
         serializedVersion: 2
         x: 48
@@ -272,7 +272,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_4
+      name: Car_1
       rect:
         serializedVersion: 2
         x: 64
@@ -293,7 +293,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -306,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_5
+      name: Car_2
       rect:
         serializedVersion: 2
         x: 80
@@ -314,7 +314,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,7 +335,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,7 +356,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_8
+      name: Turtle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -377,7 +377,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -390,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_9
+      name: Turtle_1
       rect:
         serializedVersion: 2
         x: 16
@@ -398,7 +398,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -411,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_10
+      name: Turtle_2
       rect:
         serializedVersion: 2
         x: 32
@@ -419,7 +419,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_11
+      name: Turtle_3
       rect:
         serializedVersion: 2
         x: 48
@@ -440,7 +440,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_12
+      name: Turtle_4
       rect:
         serializedVersion: 2
         x: 64
@@ -461,7 +461,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_13
+      name: Turtle_5
       rect:
         serializedVersion: 2
         x: 80
@@ -482,7 +482,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -503,7 +503,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -524,7 +524,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -537,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_16
+      name: Log_Begin
       rect:
         serializedVersion: 2
         x: 0
@@ -545,7 +545,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -558,7 +558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_17
+      name: Log_0
       rect:
         serializedVersion: 2
         x: 16
@@ -566,7 +566,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -579,7 +579,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_18
+      name: Log_1
       rect:
         serializedVersion: 2
         x: 32
@@ -587,7 +587,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_19
+      name: Log_2
       rect:
         serializedVersion: 2
         x: 48
@@ -608,7 +608,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_20
+      name: Log_End
       rect:
         serializedVersion: 2
         x: 64
@@ -629,7 +629,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_21
+      name: Crocodile_Tail
       rect:
         serializedVersion: 2
         x: 80
@@ -650,7 +650,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_22
+      name: Crocodile_Body
       rect:
         serializedVersion: 2
         x: 96
@@ -671,7 +671,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_23
+      name: Crocodile_Head_0
       rect:
         serializedVersion: 2
         x: 112
@@ -692,7 +692,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -705,7 +705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_24
+      name: Crocodile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -713,7 +713,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -726,7 +726,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_25
+      name: Crocodile_1
       rect:
         serializedVersion: 2
         x: 16
@@ -734,7 +734,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -747,7 +747,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_26
+      name: Crocodile_2
       rect:
         serializedVersion: 2
         x: 32
@@ -755,7 +755,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -768,7 +768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_27
+      name: Crocodile_3
       rect:
         serializedVersion: 2
         x: 48
@@ -776,7 +776,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -789,7 +789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_28
+      name: Crocodile_4
       rect:
         serializedVersion: 2
         x: 64
@@ -797,7 +797,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -810,7 +810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_29
+      name: Butterfly_0
       rect:
         serializedVersion: 2
         x: 80
@@ -818,7 +818,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -831,7 +831,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_30
+      name: Butterfly_1
       rect:
         serializedVersion: 2
         x: 96
@@ -839,7 +839,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -852,7 +852,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_31
+      name: Crocodile_Head_1
       rect:
         serializedVersion: 2
         x: 112
@@ -860,7 +860,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -873,7 +873,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_32
+      name: Frog_0
       rect:
         serializedVersion: 2
         x: 0
@@ -881,7 +881,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -894,7 +894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_33
+      name: Frog_1
       rect:
         serializedVersion: 2
         x: 16
@@ -902,7 +902,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -915,7 +915,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Entity_34
+      name: Frog_2
       rect:
         serializedVersion: 2
         x: 32
@@ -923,7 +923,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -944,7 +944,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -965,7 +965,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -986,7 +986,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

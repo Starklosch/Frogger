@@ -13,16 +13,16 @@ TextureImporter:
     second: Frogger_Down_3
   - first:
       213: -7280945528739531933
-    second: Frogger_Down_2
+    second: Frogger_Down_3
   - first:
       213: 8292973631370951711
-    second: Frogger_Down_1
+    second: Frogger_Down_4
   - first:
       213: 3736455318911656218
-    second: Frogger_Down_0
+    second: Frogger_Down_5
   - first:
       213: 3900972878205368785
-    second: SpritesSheet_Frogger_6
+    second: Frogger_Shadow
   - first:
       213: 2330826018807551971
     second: Frogger_Up_5
@@ -34,13 +34,13 @@ TextureImporter:
     second: Frogger_Up_3
   - first:
       213: -3087690520105702372
-    second: Frogger_Up_2
+    second: Frogger_Up_3
   - first:
       213: 8768004677702979255
-    second: Frogger_Up_1
+    second: Frogger_Up_4
   - first:
       213: 6275081151492070175
-    second: Frogger_Up_0
+    second: Frogger_Up_5
   - first:
       213: -5242253704705322138
     second: Frogger_Right_5
@@ -52,37 +52,40 @@ TextureImporter:
     second: Frogger_Right_3
   - first:
       213: -4672859222162118681
-    second: Frogger_Right_2
+    second: Frogger_Right_3
   - first:
       213: -2302383209294379967
-    second: Frogger_Right_1
+    second: Frogger_Right_4
   - first:
       213: -6281889817271203783
-    second: Frogger_Right_0
+    second: Frogger_Right_5
   - first:
       213: 3415267206950897880
-    second: SpritesSheet_Frogger_19
+    second: Frogger_Death_0
   - first:
       213: 8129315248684247973
-    second: SpritesSheet_Frogger_20
+    second: Frogger_Death_1
   - first:
       213: 4977405448003955670
-    second: SpritesSheet_Frogger_21
+    second: Frogger_Death_2
   - first:
       213: 4083960447854788369
-    second: SpritesSheet_Frogger_22
+    second: Frogger_Death_3
   - first:
       213: 2194884505470465123
-    second: SpritesSheet_Frogger_23
+    second: Frogger_Death_4
   - first:
       213: -6042503301336377624
-    second: SpritesSheet_Frogger_24
+    second: Frogger_Death_5
   - first:
       213: -2491879028294974381
-    second: SpritesSheet_Frogger_25
+    second: Frogger_Death_6
   - first:
       213: 5474447379086439257
-    second: SpritesSheet_Frogger_26
+    second: Frogger_Death_7
+  - first:
+      213: 6686559749922618098
+    second: Frogger_Death_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -168,7 +171,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frogger_Down_5
+      name: Frogger_Down_0
       rect:
         serializedVersion: 2
         x: 0
@@ -189,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Down_4
+      name: Frogger_Down_1
       rect:
         serializedVersion: 2
         x: 16
@@ -210,7 +213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Down_3
+      name: Frogger_Down_2
       rect:
         serializedVersion: 2
         x: 32
@@ -231,7 +234,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Down_2
+      name: Frogger_Down_3
       rect:
         serializedVersion: 2
         x: 48
@@ -252,7 +255,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Down_1
+      name: Frogger_Down_4
       rect:
         serializedVersion: 2
         x: 64
@@ -273,7 +276,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Down_0
+      name: Frogger_Down_5
       rect:
         serializedVersion: 2
         x: 80
@@ -294,7 +297,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_6
+      name: Frogger_Shadow
       rect:
         serializedVersion: 2
         x: 96
@@ -315,7 +318,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Up_5
+      name: Frogger_Up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -336,7 +339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Up_4
+      name: Frogger_Up_1
       rect:
         serializedVersion: 2
         x: 16
@@ -357,7 +360,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Up_3
+      name: Frogger_Up_2
       rect:
         serializedVersion: 2
         x: 32
@@ -378,7 +381,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Up_2
+      name: Frogger_Up_3
       rect:
         serializedVersion: 2
         x: 48
@@ -399,7 +402,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Up_1
+      name: Frogger_Up_4
       rect:
         serializedVersion: 2
         x: 64
@@ -420,7 +423,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Up_0
+      name: Frogger_Up_5
       rect:
         serializedVersion: 2
         x: 80
@@ -441,7 +444,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Right_5
+      name: Frogger_Right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -462,7 +465,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Right_4
+      name: Frogger_Right_1
       rect:
         serializedVersion: 2
         x: 16
@@ -483,7 +486,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Right_3
+      name: Frogger_Right_2
       rect:
         serializedVersion: 2
         x: 32
@@ -504,7 +507,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Right_2
+      name: Frogger_Right_3
       rect:
         serializedVersion: 2
         x: 48
@@ -525,7 +528,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Right_1
+      name: Frogger_Right_4
       rect:
         serializedVersion: 2
         x: 64
@@ -546,7 +549,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frogger_Right_0
+      name: Frogger_Right_5
       rect:
         serializedVersion: 2
         x: 80
@@ -567,7 +570,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_19
+      name: Frogger_Death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -588,7 +591,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_20
+      name: Frogger_Death_1
       rect:
         serializedVersion: 2
         x: 16
@@ -609,7 +612,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_21
+      name: Frogger_Death_2
       rect:
         serializedVersion: 2
         x: 32
@@ -630,7 +633,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_22
+      name: Frogger_Death_3
       rect:
         serializedVersion: 2
         x: 48
@@ -651,7 +654,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_23
+      name: Frogger_Death_4
       rect:
         serializedVersion: 2
         x: 64
@@ -672,7 +675,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_24
+      name: Frogger_Death_5
       rect:
         serializedVersion: 2
         x: 80
@@ -693,7 +696,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_25
+      name: Frogger_Death_6
       rect:
         serializedVersion: 2
         x: 96
@@ -714,7 +717,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesSheet_Frogger_26
+      name: Frogger_Death_7
       rect:
         serializedVersion: 2
         x: 112
@@ -730,6 +733,27 @@ TextureImporter:
       bones: []
       spriteID: 953f30ce2e429fb40800000000000000
       internalID: 5474447379086439257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frogger_Death_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2faff876aae6bcc50800000000000000
+      internalID: 6686559749922618098
       vertices: []
       indices: 
       edges: []
