@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turtle : MonoBehaviour
+public class Turtle : Entity
 {
     const int defaultLayer = 0;
     const int groundLayer = 8;
 
-    Animator anim;
     int diveAnim = Animator.StringToHash("Dive");
     int animSpeed = Animator.StringToHash("Speed");
 
@@ -16,15 +15,12 @@ public class Turtle : MonoBehaviour
     public float animSpeedValue;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void OnStart()
     {
-        anim = GetComponent<Animator>();
         anim.SetFloat(animSpeed, animSpeedValue);
 
         if (canDive)
             anim.Play(diveAnim);
-
-        
     }
 
     void Ground()

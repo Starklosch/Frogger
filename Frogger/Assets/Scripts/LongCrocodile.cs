@@ -19,7 +19,7 @@ public class LongCrocodile : Environment
     bool CanAnimateHead { get => headNextTime < Time.time; }
 
     // Start is called before the first frame update
-    protected override void Start()
+    protected override void OnStart()
     {
         if (length < 2)
             Debug.LogError("Too short");
@@ -27,12 +27,10 @@ public class LongCrocodile : Environment
         GenerateLong(length, spritesHead, spriteTail.MakeList(), spriteBody.MakeList(), out head);
         head.gameObject.layer = enemyLayer;
         head.gameObject.AddComponent<BoxCollider2D>();
-
-        base.Start();
     }
 
-    // Update is called once per frame
-    protected override void Update()
+
+    protected override void OnUpdate()
     {
         // Change head
         if (CanAnimateHead)
@@ -42,7 +40,5 @@ public class LongCrocodile : Environment
 
             headNextTime = Time.time + headAnimationTime;
         }
-
-        base.Update();
     }
 }

@@ -2,30 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Environment : MonoBehaviour
+public class Environment : Entity
 {
-    protected BoxCollider2D col;
-
+    public Spawner spawner;
     public bool right = true;
     public float speed = 1;
-    //public Spawner spawner;
-
-    protected virtual void Awake()
-    {
-        col = GetComponent<BoxCollider2D>();
-    }
-
+    
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
+
         if (!right)
             transform.localScale = new Vector2(-1, 1);
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected override void Update()
     {
-        // Movement
+        base.Update();
+
         if (right)
             transform.position += Vector3.right * speed * Time.deltaTime;
         else

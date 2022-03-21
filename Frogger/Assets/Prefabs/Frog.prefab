@@ -234,5 +234,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 512
-  movingSurfaceTag: 
+  movingSurfaceTag: MovingSurface
+  goalTag: Goal
+  spawnPoint: {x: 0, y: 0}
   colliderSize: {x: 0.8, y: 0.8}

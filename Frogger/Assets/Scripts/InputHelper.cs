@@ -55,7 +55,7 @@ public class InputHelper : MonoBehaviour
 
             KeyDown?.Invoke(key, keyInfo);
 
-            DebugUI.Instance[key.ToString()] = "Down";
+            //DebugUI.Instance[key.ToString()] = "Down";
         }
         else if (Input.GetKey(key) && keyInfo.state != KeyInfo.State.Up)
         {
@@ -67,20 +67,18 @@ public class InputHelper : MonoBehaviour
 
             KeyPressed?.Invoke(key, keyInfo);
 
-            DebugUI.Instance[key.ToString()] = "Pressed";
+            //DebugUI.Instance[key.ToString()] = "Pressed";
         }
         else
         {
-            //if (key.timeDown + minKeyTimeDown < Time.time)
-            //{
             if (keyInfo.state != KeyInfo.State.Up)
             {
                 keyInfo.timeUp = Time.time;
                 keyInfo.state = KeyInfo.State.Up;
                 KeyUp?.Invoke(key, keyInfo);
             }
-            //}
-            DebugUI.Instance[key.ToString()] = "Up";
+            
+            //DebugUI.Instance[key.ToString()] = "Up";
         }
     }
 

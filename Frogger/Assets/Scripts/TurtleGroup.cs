@@ -8,10 +8,13 @@ public class TurtleGroup : Environment
     [SerializeField] float animSpeed;
     public int count;
 
-    // Start is called before the first frame update
-    protected override void Start()
+    public bool canDive;
+
+    protected override void OnStart()
     {
         GetComponent<BoxCollider2D>().size = new Vector2(count, 1);
+
+        bool canDive = spawner.SpawnedCount % spawner.MaxEntities == spawner.RandomInt;
 
         Vector2 position = transform.position;
         position += new Vector2(-count / 2.0f + 0.5f, 0);
@@ -21,16 +24,10 @@ public class TurtleGroup : Environment
             var turtle = Instantiate(prefab, position, Quaternion.identity, transform).GetComponent<Turtle>();
             turtle.group = this;
             turtle.animSpeedValue = animSpeed;
+            turtle.canDive = canDive;
 
             position += Vector2.right;
         }
-
-        base.Start();
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-    }
 }

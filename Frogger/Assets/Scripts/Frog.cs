@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Frog : MonoBehaviour
+public partial class Frog : Entity
 {
-
-    Animator anim;
-
-    bool alive = true;
+    FrogSprite sprite;
 
     // Animation
     int animMoveUp = Animator.StringToHash("Move_Up");
@@ -15,6 +12,7 @@ public partial class Frog : MonoBehaviour
     int animMoveRight = Animator.StringToHash("Move_Right");
     int animMoveLeft = Animator.StringToHash("Move_Left");
     int animDie = Animator.StringToHash("Die");
+    int animIdle = Animator.StringToHash("Idle");
 
     int animSpeed = Animator.StringToHash("Speed");
 
@@ -24,34 +22,38 @@ public partial class Frog : MonoBehaviour
     Vector3 direction;
     float polledMovementNextTime = 0;
 
+    bool canMove = false;
     bool onMovingSurface = false;
+    bool shouldRespawn = true;
+    bool death = false;
 
     public float minKeyHoldTimeToRepeat = 1;
 
     public float speed = 2;
     public float movementPoolingTime = .5f;
 
-    // Masks
-    public LayerMask groundMask;
-    public LayerMask enemyMask;
-    public string movingSurfaceTag;
-
-    public Vector2 colliderSize = Vector2.one * .8f;
+    [SerializeField] Vector3 spawnPoint;
+    [SerializeField] Vector2 colliderSize = Vector2.one * .8f;
 
     public bool CanPoll { get => polledMovementNextTime > Time.time - movementPoolingTime; }
     public bool PressedEnoughTime { get => polledMovementNextTime > Time.time - movementPoolingTime; }
+    public bool CanMove { get => canMove; set => canMove = value; }
 
+    public event System.Action Death;
+    public event System.Action Move;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void OnStart()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
+        sprite = GetComponentInChildren<FrogSprite>();
+
         anim.SetFloat(animSpeed, speed);
 
-        if (enemyMask.value == 0)
-            Debug.LogWarning("enemyMask unset");
-        if (groundMask.value == 0)
-            Debug.LogWarning("groundMask unset");
+        if (string.IsNullOrWhiteSpace(Constants.goalTag))
+            Debug.LogWarning("goalTag unset");
+        if (string.IsNullOrWhiteSpace(Constants.movingSurfaceTag))
+            Debug.LogWarning("movingSurfaceTag unset");
 
         InputHelper.Instance.CheckKey(KeyCode.W);
         InputHelper.Instance.CheckKey(KeyCode.S);
@@ -72,26 +74,36 @@ public partial class Frog : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void OnUpdate()
     {
-        if (!alive)
+        //if (!GameManager.Instance.HasLives)
+        //    return;
+
+        Respawn();
+
+        if (death)
             return;
 
         Movement();
 
-        if (onMovingSurface)
-            GroundChecking();
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!moving)
         {
-            var newPos = transform.position;
-            newPos.x = Mathf.Round(newPos.x);
-            newPos.y = Mathf.Round(newPos.y);
-            transform.position = newPos;
+            GroundChecking();
+            EnemyChecking();
         }
     }
 
+    void Respawn()
+    {
+        if (!shouldRespawn)
+            return;
 
+        transform.position = spawnPoint;
+        anim.Play(animIdle);
+
+        shouldRespawn = false;
+        death = false;
+    }
 
     bool KeyCheck(KeyCode code)
     {
@@ -114,46 +126,84 @@ public partial class Frog : MonoBehaviour
         return false;
     }
 
+    #region Checks
+    bool WallChecking()
+    {
+        var wallHit = Physics2D.BoxCast(transform.position + direction, colliderSize, 0, Vector2.zero, 0, Constants.WallMask);
+        if (wallHit)
+            return false;
+
+        return true;
+    }
+
     void GroundCheckingPre()
     {
-        var groundHit = Physics2D.BoxCast(transform.position + direction, colliderSize, 0, Vector2.zero, 0, groundMask);
+        var groundHit = Physics2D.BoxCast(transform.position + direction, colliderSize, 0, Vector2.zero, 0, Constants.GroundMask);
 
-        if (!groundHit || groundHit.transform.tag != movingSurfaceTag)
+        if (!groundHit || groundHit.transform.tag != Constants.movingSurfaceTag)
         {
             transform.SetParent(null);
             onMovingSurface = false;
         }
     }
 
-    void GroundChecking()
+    // True if ground found
+    bool GroundChecking()
     {
-        var groundHit = Physics2D.BoxCast(transform.position, colliderSize, 0, Vector2.zero, 0, groundMask);
+        var groundHit = Physics2D.BoxCast(transform.position, colliderSize, 0, Vector2.zero, 0, Constants.GroundMask);
 
-        if (groundHit && groundHit.transform.tag == movingSurfaceTag)
+        if (groundHit && groundHit.transform.tag == Constants.movingSurfaceTag)
         {
             transform.SetParent(groundHit.transform);
             onMovingSurface = true;
         }
 
+        if (groundHit && groundHit.transform.tag == Constants.goalTag)
+        {
+            var target = groundHit.transform.GetComponent<Target>();
+            if (target.SetFrog())
+            {
+                shouldRespawn = true;
+                GameManager.Instance.ShowTime();
+            }
+        }
+
         if (!groundHit)
         {
-            alive = false;
-            anim.Play(animDie);
+            Die();
+            return false;
         }
+
+        return true;
     }
 
-    void EnemyChecking()
+    // True if died
+    bool EnemyChecking()
     {
-        var enemyHit = Physics2D.BoxCast(transform.position, colliderSize, 0, Vector2.zero, 0, enemyMask);
+        var enemyHit = Physics2D.BoxCast(transform.position, colliderSize, 0, Vector2.zero, 0, Constants.EnemyMask);
         if (enemyHit)
         {
-            alive = false;
-            anim.Play(animDie);
+            Die();
+            return true;
         }
+        return false;
+    }
+    #endregion
+
+    void Die()
+    {
+        transform.SetParent(null);
+        onMovingSurface = false;
+
+        anim.Play(animDie);
+        death = true;
     }
 
     void Movement()
     {
+        if (!canMove)
+            return;
+
         Vector2 registeredMovement = Vector2.zero;
 
         // Handle input
@@ -196,10 +246,10 @@ public partial class Frog : MonoBehaviour
             polledMovementNextTime = Time.time;
         }
 
-        Move(currentMovement);
+        MakeMovement(currentMovement);
     }
 
-    void Move(Vector2 direction)
+    void MakeMovement(Vector2 direction)
     {
         if (direction == Vector2.zero)
             return;
@@ -209,46 +259,76 @@ public partial class Frog : MonoBehaviour
         //newPos.x = Mathf.Round(newPos.x);
         //newPos.y = Mathf.Round(newPos.y);
         //transform.position = newPos;
+        GroundCheckingPre();
 
-        //var hit = Physics2D.BoxCast(transform.position + Vector3.up, groundSensivity, 0, Vector2.zero, 0, groundMask);
         if (direction.y > 0)
         {
-            anim.Play(animMoveUp, -1, 0);
             this.direction = Vector3.up;
+            if (!WallChecking())
+                return;
+
+            anim.Play(animMoveUp, -1, 0);
         }
         else if (direction.y < 0)
         {
-            anim.Play(animMoveDown, -1, 0);
             this.direction = Vector3.down;
+            if (!WallChecking())
+                return;
+
+            anim.Play(animMoveDown, -1, 0);
         }
         else if (direction.x > 0)
         {
-            anim.Play(animMoveRight, -1, 0);
             this.direction = Vector3.right;
+            if (!WallChecking())
+                return;
+
+            anim.Play(animMoveRight, -1, 0);
         }
         else if (direction.x < 0)
         {
-            anim.Play(animMoveLeft, -1, 0);
             this.direction = Vector3.left;
+            if (!WallChecking())
+                return;
+
+            anim.Play(animMoveLeft, -1, 0);
         }
     }
 
-    void MoveStarted()
+    #region Events
+    public void MoveStarted()
     {
         moving = true;
-        GroundCheckingPre();
     }
 
-    void MoveFinished()
+    public void MoveFinished()
     {
         moving = false;
-        GroundChecking();
-        EnemyChecking();
+
+        sprite.transform.SetParent(null);
+        transform.position = sprite.transform.position;
+        sprite.transform.SetParent(transform);
+
+
+        var death = !GroundChecking();
+        death |= EnemyChecking();
+        if (!death)
+            Move?.Invoke();
     }
+
+    public void DieEnd()
+    {
+        shouldRespawn = true;
+        Death?.Invoke();
+    }
+    #endregion
 
     private void OnDrawGizmos()
     {
-        //var hit = Physics2D.BoxCast(transform.position, colliderSize, 0, Vector2.zero, 0, groundMask);
+        //var hit = Physics2D.BoxCast(transform.position, colliderSize, 0, Vector2.zero, 0, Constants.groundMask);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(spawnPoint, Vector3.one);
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, colliderSize);

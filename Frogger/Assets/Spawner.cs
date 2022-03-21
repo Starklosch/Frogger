@@ -9,6 +9,11 @@ public class Spawner : MonoBehaviour
     Killer killer;
     float lastSpawnTime = -10;
     float spawnTime;
+    int spawnedCount = 0;
+    public int SpawnedCount => spawnedCount;
+
+    int randomNumber;
+    public int RandomInt => randomNumber;
 
     bool right = true;
     [SerializeField] GameObject prefab;
@@ -19,11 +24,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] float spawnTimeVariation = .2f;
     [SerializeField] LayerMask mask;
 
-    float SpeedMultiplier { get => Random.Range(1, maxSpeedMultiplier); }
+    public float MaxEntities => maxEntities;
 
-    float Speed { get => baseSpeed * SpeedMultiplier; }
-    //public float Speed { get => speed; }
-    //public bool Right { get => Right; }
+    float SpeedMultiplier => Random.Range(1, maxSpeedMultiplier);
+
+    float Speed => baseSpeed * SpeedMultiplier;
     public int entityCount = 0;
 
     //int EntityCount
@@ -69,6 +74,16 @@ public class Spawner : MonoBehaviour
         col.size = new Vector2(col.size.x, laneHeight);
         var kilCol = killer.GetComponent<BoxCollider2D>();
         kilCol.size = new Vector2(kilCol.size.x, laneHeight);
+
+        randomNumber = Random.Range(0, (int)maxEntities);
+
+        GameManager.Instance.LevelCompleted += LevelCompleted;
+    }
+
+    private void LevelCompleted()
+    {
+        spawnedCount = 0;
+        randomNumber = Random.Range(0, (int)maxEntities);
     }
 
     // Update is called once per frame
@@ -76,22 +91,27 @@ public class Spawner : MonoBehaviour
     {
         if (CanSpawn)
         {
-            var ent = Instantiate(prefab, transform.position, Quaternion.identity, transform).GetComponent<Environment>();
-            ent.speed = Speed;
-            ent.right = right;
-            ent.transform.SetParent(transform);
-
-            float time = laneWidth / baseSpeed / maxEntities;
-            spawnTime = time + Random.Range(-spawnTimeVariation, spawnTimeVariation);
-            lastSpawnTime = Time.time;
-            entityCount++;
+            Spawn();
         }
 
         if (transform.childCount > 1)
             killer.Kill();
     }
 
-    
+    void Spawn()
+    {
+        var ent = Instantiate(prefab, transform.position, Quaternion.identity, transform).GetComponent<Environment>();
+        ent.speed = Speed;
+        ent.right = right;
+        ent.spawner = this;
+        ent.transform.SetParent(transform);
+
+        float time = laneWidth / baseSpeed / maxEntities;
+        spawnTime = time + Random.Range(-spawnTimeVariation, spawnTimeVariation);
+        lastSpawnTime = Time.time;
+        entityCount++;
+        spawnedCount++;
+    }
 
     private void OnDrawGizmosSelected()
     {

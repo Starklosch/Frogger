@@ -2,38 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class Target : Entity
 {
-    const int groundLayer = 8;
-    const int enemyLayer = 9;
-
-    Animator anim;
     int animCrocodile = Animator.StringToHash("Crocodile");
     int animButterfly = Animator.StringToHash("Butterfly");
+    int animFrog = Animator.StringToHash("Frog");
 
     float lastTryTime = -10;
     float lastSpawnTime = -10;
 
     static int summonCount = 0;
 
+    [SerializeField] bool hasFrog = false;
+
     public float cooldown = 5;
     public float spawnTryTime = .5f;
-    public bool canSummonCrocodile = false;
+    private bool canSummonCrocodile = false;
 
     bool CanTry { get => lastTryTime + spawnTryTime < Time.time; }
-    bool CanSummon { get => summonCount < 2 && CanTry && lastSpawnTime + cooldown < Time.time; }
+    bool CanSummon { get => !hasFrog && summonCount < 2 && CanTry && lastSpawnTime + cooldown < Time.time; }
+    public bool HasFrog { get => hasFrog; set => hasFrog = value; }
+    public bool CanSummonCrocodile { get => canSummonCrocodile; set => canSummonCrocodile = value; }
+
+    public event System.Action FrogArrive;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void OnStart()
     {
         summonCount = 0;
-        anim = GetComponent<Animator>();
+
+        SetupFrog();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void OnUpdate()
     {
         Summon();
+    }
+
+    public bool SetFrog()
+    {
+        if (hasFrog)
+            return false;
+
+        if (gameObject.layer != Constants.LAYER_GROUND)
+            return false;
+
+        hasFrog = true;
+        SetupFrog();
+        return true;
+    }
+
+    void SetupFrog()
+    {
+        if (!hasFrog)
+            return;
+
+        gameObject.layer = Constants.LAYER_WALL;
+        anim.Play(animFrog);
+        FrogArrive?.Invoke();
     }
 
     void Summon()
@@ -46,16 +73,16 @@ public class Target : MonoBehaviour
         lastTryTime = Time.time;
         if (canSummonCrocodile)
         {
-            if (choice < 55)
+            if (choice < 60)
                 return;
 
-            if (choice > 80)
+            if (choice > 85)
                 anim.Play(animButterfly);
             else
                 anim.Play(animCrocodile);
 
         }
-        else if (choice > 70)
+        else if (choice > 75)
         {
             anim.Play(animButterfly);
         }
@@ -65,18 +92,18 @@ public class Target : MonoBehaviour
 
     void CrocoArrive()
     {
-        gameObject.layer = enemyLayer;
+        gameObject.layer = Constants.LAYER_ENEMY;
     }
 
     void CrocoLeft()
     {
-        gameObject.layer = groundLayer;
+        gameObject.layer = Constants.LAYER_GROUND;
         summonCount--;
     }
 
     void ButteflyLeft()
     {
-        gameObject.layer = groundLayer;
+        gameObject.layer = Constants.LAYER_GROUND;
         summonCount--;
         //animationRunning = false;
         //lastTime = Time.time;

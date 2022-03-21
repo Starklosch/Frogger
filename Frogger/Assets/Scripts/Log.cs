@@ -12,20 +12,11 @@ public class Log : Environment
     public Sprite spriteBegin;
 
     // Start is called before the first frame update
-    protected override void Start()
+    protected override void OnStart()
     {
         if (length < 2)
             Debug.LogError("Too short");
 
         GenerateLong(length, spritesEnd.MakeList(), spriteBegin.MakeList(), spriteBody, out _);
-
-        base.Start();
-    }
-
-    // Update is called once per frame
-    protected override void Update()
-    {
-
-        base.Update();
     }
 }
