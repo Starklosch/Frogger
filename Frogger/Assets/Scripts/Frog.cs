@@ -157,6 +157,11 @@ public partial class Frog : Entity
             transform.SetParent(groundHit.transform);
             onMovingSurface = true;
         }
+        else
+        {
+            transform.SetParent(null);
+            onMovingSurface = false;
+        }
 
         if (groundHit && groundHit.transform.tag == Constants.goalTag)
         {
@@ -164,7 +169,6 @@ public partial class Frog : Entity
             if (target.SetFrog())
             {
                 shouldRespawn = true;
-                GameManager.Instance.ShowTime();
             }
         }
 

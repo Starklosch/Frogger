@@ -17,14 +17,16 @@ public class Target : Entity
 
     public float cooldown = 5;
     public float spawnTryTime = .5f;
-    private bool canSummonCrocodile = false;
+    private bool canSummonCrocodile = true;
 
+    bool hasFly = false;
     bool CanTry { get => lastTryTime + spawnTryTime < Time.time; }
-    bool CanSummon { get => !hasFrog && summonCount < 2 && CanTry && lastSpawnTime + cooldown < Time.time; }
+    bool CanSummon { get => !hasFrog /*&& summonCount < 3*/ && lastSpawnTime + cooldown < Time.time && CanTry; }
     public bool HasFrog { get => hasFrog; set => hasFrog = value; }
     public bool CanSummonCrocodile { get => canSummonCrocodile; set => canSummonCrocodile = value; }
 
-    public event System.Action FrogArrive;
+    public delegate void TargetEvent(bool hasFly);
+    public event TargetEvent FrogArrive;
 
     // Start is called before the first frame update
     protected override void OnStart()
@@ -60,7 +62,7 @@ public class Target : Entity
 
         gameObject.layer = Constants.LAYER_WALL;
         anim.Play(animFrog);
-        FrogArrive?.Invoke();
+        FrogArrive?.Invoke(hasFly);
     }
 
     void Summon()
@@ -73,17 +75,21 @@ public class Target : Entity
         lastTryTime = Time.time;
         if (canSummonCrocodile)
         {
-            if (choice < 60)
+            if (choice < 55)
                 return;
 
-            if (choice > 85)
+            if (choice > 80)
+            {
+                hasFly = true;
                 anim.Play(animButterfly);
+            }
             else
                 anim.Play(animCrocodile);
 
         }
-        else if (choice > 75)
+        else if (choice > 70)
         {
+            hasFly = true;
             anim.Play(animButterfly);
         }
         lastSpawnTime = Time.time;
@@ -105,6 +111,7 @@ public class Target : Entity
     {
         gameObject.layer = Constants.LAYER_GROUND;
         summonCount--;
+        hasFly = false;
         //animationRunning = false;
         //lastTime = Time.time;
     }

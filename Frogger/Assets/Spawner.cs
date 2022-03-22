@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner : Entity
 {
     private const float correction = -.1f;
-    BoxCollider2D col;
     Killer killer;
     float lastSpawnTime = -10;
     float spawnTime;
@@ -58,9 +57,8 @@ public class Spawner : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void OnStart()
     {
-        col = GetComponent<BoxCollider2D>();
         entityCount = 0;
 
         killer = GetComponentInChildren<Killer>();
@@ -87,7 +85,7 @@ public class Spawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (CanSpawn)
         {

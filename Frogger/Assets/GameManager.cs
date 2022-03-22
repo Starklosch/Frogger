@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float maxTime = 60;
     [SerializeField] float waitTime = 3;
     [SerializeField] int startLives = 3;
+    [SerializeField] GameObject gameOverScreen;
+
     int level = 1;
     int Level
     {
@@ -100,6 +103,8 @@ public class GameManager : MonoBehaviour
         }
         targetCount = targets.Length;
 
+        gameOverScreen.SetActive(false);
+
         startTime = Time.time;
         Time.timeScale = waitTime * 2;
     }
@@ -109,10 +114,18 @@ public class GameManager : MonoBehaviour
         Score += 10;
     }
 
-    private void Target_FrogArrive()
+    private void Target_FrogArrive(bool fly)
     {
-        targetsReached++;
+        TargetsReached++;
         Score += 50;
+        Score += (int)(maxTime - ElapsedTime) * 10;
+        if (fly)
+        {
+            Debug.Log("FLy");
+            Score += 200;
+        }
+
+        ShowTime();
         Restart();
     }
 
@@ -158,8 +171,11 @@ public class GameManager : MonoBehaviour
 
         if (!HasLives)
         {
-            Restart(score: true, targets: true);
+            Lose();
         }
+
+        if (Paused)
+            return;
 
         if (!HasTime)
         {
@@ -172,14 +188,28 @@ public class GameManager : MonoBehaviour
 
     public void ShowTime()
     {
-        GameUI.Instance.TimeText = "TIME: " + (int)ElapsedTime;
+        GameUI.Instance.TimeText = "TIME: " + (int)(maxTime - ElapsedTime);
     }
 
     void Win()
     {
-        Restart(targets: true);
-        Level++;
-        LevelCompleted?.Invoke();
+        //Restart(targets: true);
+        //Level++;
+        //LevelCompleted?.Invoke();
+        Score += 1000;
+        Paused = true;
+        gameOverScreen.SetActive(true);
+    }
+
+    void Lose()
+    {
+        Paused = true;
+        gameOverScreen.SetActive(true);
+    }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene(0);
     }
 
     string FormatNumber(int n)
