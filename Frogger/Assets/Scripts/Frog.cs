@@ -63,22 +63,8 @@ public partial class Frog : Entity
         InputHelper.Instance.KeyUp += KeyUp;
     }
 
-    private void KeyUp(KeyCode key, KeyInfo info)
-    {
-        // Clear polled movement
-        if (info.holded && (info.timeDown + minKeyHoldTimeToRepeat < Time.time))
-        {
-            //Debug.Log("Cleared");
-            polledMovement = Vector2.zero;
-        }
-    }
-
-    // Update is called once per frame
     protected override void OnUpdate()
     {
-        //if (!GameManager.Instance.HasLives)
-        //    return;
-
         Respawn();
 
         if (death)
@@ -91,6 +77,11 @@ public partial class Frog : Entity
             GroundChecking();
             EnemyChecking();
         }
+    }
+
+    public void Restart()
+    {
+        shouldRespawn = true;
     }
 
     void Respawn()
@@ -168,7 +159,7 @@ public partial class Frog : Entity
             var target = groundHit.transform.GetComponent<Home>();
             if (target.SetFrog())
             {
-                shouldRespawn = true;
+                Restart();
             }
         }
 
@@ -194,7 +185,7 @@ public partial class Frog : Entity
     }
     #endregion
 
-    void Die()
+    public void Die()
     {
         transform.SetParent(null);
         onMovingSurface = false;
@@ -322,10 +313,20 @@ public partial class Frog : Entity
 
     public void DieEnd()
     {
-        shouldRespawn = true;
+        Restart();
         Death?.Invoke();
     }
     #endregion
+
+    private void KeyUp(KeyCode key, KeyInfo info)
+    {
+        // Clear polled movement
+        if (info.holded && (info.timeDown + minKeyHoldTimeToRepeat < Time.time))
+        {
+            //Debug.Log("Cleared");
+            polledMovement = Vector2.zero;
+        }
+    }
 
     private void OnDrawGizmos()
     {

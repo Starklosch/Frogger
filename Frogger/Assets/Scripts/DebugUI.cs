@@ -40,4 +40,5 @@ public class DebugUI : MonoBehaviour
             UpdateText();
         }
     }
+
 }

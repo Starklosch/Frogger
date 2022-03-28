@@ -9,13 +9,13 @@ public class Environment : Entity
     public float speed = 1;
     
     // Start is called before the first frame update
-    protected override void Start()
-    {
-        base.Start();
+    //protected override void Start()
+    //{
+    //    base.Start();
 
-        if (!right)
-            transform.localScale = new Vector2(-1, 1);
-    }
+    //    if (!right)
+    //        transform.localScale = new Vector2(-1, 1);
+    //}
 
     // Update is called once per frame
     protected override void Update()

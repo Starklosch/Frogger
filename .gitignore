@@ -58,3 +58,5 @@
 # Crashlytics generated file
 */crashlytics-build.properties
 
+**/SuperUnityBuildSettings.asset
+**/SuperUnityBuildSettings.asset.meta

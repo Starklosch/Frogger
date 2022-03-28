@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         if (!HasTime)
         {
             GameUI.Instance.TimeText = "TIME OVER";
-            Frog_Death();
+            frog.Die();
             return;
         }
     }

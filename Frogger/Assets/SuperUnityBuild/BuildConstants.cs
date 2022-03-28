@@ -28,11 +28,11 @@ public static class BuildConstants
         None,
     }
 
-    public static readonly System.DateTime buildDate = new System.DateTime(637840856147366622);
-    public const string version = "1.0.0.1";
+    public static readonly System.DateTime buildDate = new System.DateTime(637840951894082127);
+    public const string version = "0.2.2";
     public const ReleaseType releaseType = ReleaseType.Release;
-    public const Platform platform = Platform.PC;
-    public const Architecture architecture = Architecture.Windows_x64;
+    public const Platform platform = Platform.WebGL;
+    public const Architecture architecture = Architecture.WebGL;
     public const Distribution distribution = Distribution.None;
 }
 
