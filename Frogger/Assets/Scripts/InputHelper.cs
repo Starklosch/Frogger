@@ -69,15 +69,12 @@ public class InputHelper : MonoBehaviour
 
             //DebugUI.Instance[key.ToString()] = "Pressed";
         }
-        else
+        else if (keyInfo.state != KeyInfo.State.Up)
         {
-            if (keyInfo.state != KeyInfo.State.Up)
-            {
-                keyInfo.timeUp = Time.time;
-                keyInfo.state = KeyInfo.State.Up;
-                KeyUp?.Invoke(key, keyInfo);
-            }
-            
+            keyInfo.timeUp = Time.time;
+            keyInfo.state = KeyInfo.State.Up;
+            KeyUp?.Invoke(key, keyInfo);
+
             //DebugUI.Instance[key.ToString()] = "Up";
         }
     }

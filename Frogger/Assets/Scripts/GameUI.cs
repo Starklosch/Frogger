@@ -34,8 +34,8 @@ public class GameUI : MonoBehaviour
         get => t_time.text;
     }
 
-    public float Time { set => slider_time.value = value; get => slider_time.value; }
-    public float MaxTime { set => slider_time.maxValue = value; get => slider_time.maxValue; }
+    public int Beats { set => slider_time.value = value; get => (int)slider_time.value; }
+    public int MaxBeats { set => slider_time.maxValue = value; get => (int)slider_time.maxValue; }
 
     void ShowTime()
     {

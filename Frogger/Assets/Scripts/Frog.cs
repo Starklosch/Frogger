@@ -165,7 +165,7 @@ public partial class Frog : Entity
 
         if (groundHit && groundHit.transform.tag == Constants.goalTag)
         {
-            var target = groundHit.transform.GetComponent<Target>();
+            var target = groundHit.transform.GetComponent<Home>();
             if (target.SetFrog())
             {
                 shouldRespawn = true;
